@@ -65,7 +65,6 @@ class NewsViewHolder(
                     )
                 tv_time.text = time
             }
-            tv_content.text = content
         }
 
         itemView.setOnClickListener {
