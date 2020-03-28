@@ -4,14 +4,14 @@ import android.content.Context
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.itis.group11801.fedotova.mvvmexample.data.model.News
-import com.itis.group11801.fedotova.mvvmexample.domain.NewsInteractorImpl
+import com.itis.group11801.fedotova.mvvmexample.domain.NewsInteractor
 import com.itis.group11801.fedotova.mvvmexample.navigation.NewsRouter
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import javax.inject.Inject
 
 class MainViewModel @Inject constructor(
-    private val interactor: NewsInteractorImpl,
+    private val interactor: NewsInteractor,
     private val router: NewsRouter
 ) : BaseViewModel() {
 
