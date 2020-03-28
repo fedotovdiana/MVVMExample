@@ -7,6 +7,7 @@ import com.itis.group11801.fedotova.mvvmexample.data.model.News
 import com.itis.group11801.fedotova.mvvmexample.domain.NewsInteractorImpl
 import com.itis.group11801.fedotova.mvvmexample.navigation.NewsRouter
 import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.schedulers.Schedulers
 import javax.inject.Inject
 
 class MainViewModel @Inject constructor(
@@ -24,6 +25,7 @@ class MainViewModel @Inject constructor(
     fun getNews() {
         disposables.add(
             interactor.getNews()
+                .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({
                     _newsLiveData.value = it
