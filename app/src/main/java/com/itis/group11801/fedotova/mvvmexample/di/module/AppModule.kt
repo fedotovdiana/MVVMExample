@@ -1,9 +1,9 @@
 package com.itis.group11801.fedotova.mvvmexample.di.module
 
 import com.itis.group11801.fedotova.mvvmexample.BuildConfig
-import com.itis.group11801.fedotova.mvvmexample.data.repository.NewsRepository
-import com.itis.group11801.fedotova.mvvmexample.data.repository.NewsRepositoryImpl
-import com.itis.group11801.fedotova.mvvmexample.data.service.NewsApiService
+import com.itis.group11801.fedotova.mvvmexample.data.remote.repository.NewsRepository
+import com.itis.group11801.fedotova.mvvmexample.data.remote.repository.NewsRepositoryImpl
+import com.itis.group11801.fedotova.mvvmexample.data.remote.service.NewsApiService
 import com.itis.group11801.fedotova.mvvmexample.domain.NewsInteractor
 import com.itis.group11801.fedotova.mvvmexample.domain.NewsInteractorImpl
 import dagger.Module

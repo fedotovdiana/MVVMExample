@@ -3,8 +3,8 @@ package com.itis.group11801.fedotova.mvvmexample.viewmodel
 import android.content.Context
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import com.itis.group11801.fedotova.mvvmexample.data.model.News
 import com.itis.group11801.fedotova.mvvmexample.domain.NewsInteractor
+import com.itis.group11801.fedotova.mvvmexample.domain.model.News
 import com.itis.group11801.fedotova.mvvmexample.navigation.NewsRouter
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
@@ -18,8 +18,8 @@ class MainViewModel @Inject constructor(
     private val _newsLiveData = MutableLiveData<List<News>>()
     val newsLiveData: LiveData<List<News>> = _newsLiveData
 
-    fun newsClicked(context: Context, news: News) {
-        router.openNews(context, news.title!!)
+    fun newsClicked(context: Context, newsUrl: String) {
+        router.openNews(context, newsUrl)
     }
 
     fun getNews() {

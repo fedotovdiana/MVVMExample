@@ -4,6 +4,6 @@ import android.content.Context
 
 interface NewsRouter {
 
-    fun openNews(context: Context, news: String)
+    fun openNews(context: Context, newsUrl: String)
 
 }

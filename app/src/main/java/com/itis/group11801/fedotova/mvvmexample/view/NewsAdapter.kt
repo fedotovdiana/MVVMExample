@@ -17,17 +17,10 @@ import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.RequestOptions
 import com.bumptech.glide.request.target.Target
 import com.itis.group11801.fedotova.mvvmexample.R
-import com.itis.group11801.fedotova.mvvmexample.data.model.News
+import com.itis.group11801.fedotova.mvvmexample.domain.model.News
 import com.itis.group11801.fedotova.mvvmexample.util.dateFormat
 import kotlinx.android.extensions.LayoutContainer
-import kotlinx.android.synthetic.main.activity_details.*
 import kotlinx.android.synthetic.main.item_news.*
-import kotlinx.android.synthetic.main.item_news.img_news
-import kotlinx.android.synthetic.main.item_news.progress_load_photo
-import kotlinx.android.synthetic.main.item_news.tv_description
-import kotlinx.android.synthetic.main.item_news.tv_source
-import kotlinx.android.synthetic.main.item_news.tv_time
-import kotlinx.android.synthetic.main.item_news.tv_title
 
 class NewsAdapter(
     private val onClick: (News) -> Unit
@@ -58,7 +51,7 @@ class NewsViewHolder(
             tv_title.text = title
             tv_description.text = description
             tv_source.text = source
-            publishedAt?.let {
+            publishedAt.let {
                 val time =
                     dateFormat(
                         publishedAt

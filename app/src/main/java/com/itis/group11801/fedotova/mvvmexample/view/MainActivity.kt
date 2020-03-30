@@ -16,12 +16,10 @@ class MainActivity : BaseActivity<MainViewModel>() {
         viewModel = injectViewModel(viewModelFactory)
     }
 
-    override fun initViews() {}
-
     override fun subscribe() {
         viewModel.newsLiveData.observe(this, Observer { list ->
             if (rvNews.adapter == null) {
-                rvNews.adapter = NewsAdapter { viewModel.newsClicked(this, it) }
+                rvNews.adapter = NewsAdapter { viewModel.newsClicked(this, it.url) }
             }
             (rvNews.adapter as NewsAdapter).submitList(list)
         })

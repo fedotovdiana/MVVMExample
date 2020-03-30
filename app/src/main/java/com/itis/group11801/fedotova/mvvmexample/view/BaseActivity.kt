@@ -17,15 +17,12 @@ abstract class BaseActivity<T : BaseViewModel> : AppCompatActivity() {
 
         setContentView(layoutResource())
         inject()
-        initViews()
         subscribe()
     }
 
     abstract fun layoutResource(): Int
 
     abstract fun inject()
-
-    abstract fun initViews()
 
     abstract fun subscribe()
 }

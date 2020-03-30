@@ -1,4 +1,4 @@
-package com.itis.group11801.fedotova.mvvmexample.data.model
+package com.itis.group11801.fedotova.mvvmexample.data.remote.model
 
 import com.google.gson.annotations.SerializedName
 
