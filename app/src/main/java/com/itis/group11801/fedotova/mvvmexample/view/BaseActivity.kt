@@ -14,8 +14,9 @@ abstract class BaseActivity<T : BaseViewModel> : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-        setContentView(layoutResource())
+        if (this is DetailsActivity) {
+            setContentView(layoutResource())
+        }
         inject()
         subscribe()
     }

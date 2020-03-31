@@ -8,7 +8,7 @@ fun dateFormat(oldStringDate: String): String {
     val newDate: String
     val dateFormat = SimpleDateFormat("d MMM yyyy", Locale(getCountry()))
     newDate = try {
-        val date: Date = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'").parse(oldStringDate)
+        val date: Date = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'").parse(oldStringDate)!!
         dateFormat.format(date)
     } catch (e: ParseException) {
         e.printStackTrace()
