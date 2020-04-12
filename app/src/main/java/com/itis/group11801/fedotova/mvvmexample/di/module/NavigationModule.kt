@@ -9,11 +9,11 @@ import javax.inject.Singleton
 @Module
 class NavigationModule {
 
-    @Singleton
     @Provides
+    @Singleton
     fun provideNavigator(): Navigator = Navigator()
 
-    @Singleton
     @Provides
+    @Singleton
     fun provideNewsRouter(navigator: Navigator): NewsRouter = navigator
 }

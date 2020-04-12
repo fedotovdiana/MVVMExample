@@ -1,8 +1,10 @@
 package com.itis.group11801.fedotova.mvvmexample.view
 
 import android.graphics.drawable.Drawable
+import android.os.Bundle
 import android.view.View
 import androidx.annotation.Nullable
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.DataSource
@@ -13,22 +15,26 @@ import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.RequestOptions
 import com.bumptech.glide.request.target.Target
 import com.itis.group11801.fedotova.mvvmexample.R
-import com.itis.group11801.fedotova.mvvmexample.di.injectViewModel
+import com.itis.group11801.fedotova.mvvmexample.di.AppInjector
 import com.itis.group11801.fedotova.mvvmexample.navigation.Navigator.Companion.KEY_NEWS
 import com.itis.group11801.fedotova.mvvmexample.viewmodel.DetailsViewModel
 import kotlinx.android.synthetic.main.activity_details.*
+import javax.inject.Inject
 
-class DetailsActivity : BaseActivity<DetailsViewModel>() {
+class DetailsActivity : AppCompatActivity() {
 
-    override fun layoutResource(): Int {
-        return R.layout.activity_details
+    @Inject
+    lateinit var viewModel: DetailsViewModel
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        AppInjector.initDetailsComponent()
+        AppInjector.injectDetailsActivity(this)
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_details)
+        subscribe()
     }
 
-    override fun inject() {
-        viewModel = injectViewModel(viewModelFactory)
-    }
-
-    override fun subscribe() {
+    private fun subscribe() {
         viewModel.newsLiveData.observe(this, Observer {
             with(it) {
                 tv_title.text = title
@@ -70,7 +76,6 @@ class DetailsActivity : BaseActivity<DetailsViewModel>() {
                 })
                 .into(img_news)
         })
-//        viewModel.url = intent.getStringExtra(KEY_NEWS)?: ""
         viewModel.getConcreteNews(intent.getStringExtra(KEY_NEWS) ?: "")
     }
 }
