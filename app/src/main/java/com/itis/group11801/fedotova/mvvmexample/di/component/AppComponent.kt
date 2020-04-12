@@ -2,10 +2,7 @@ package com.itis.group11801.fedotova.mvvmexample.di.component
 
 import android.app.Application
 import com.itis.group11801.fedotova.mvvmexample.App
-import com.itis.group11801.fedotova.mvvmexample.di.module.DataModule
-import com.itis.group11801.fedotova.mvvmexample.di.module.DbModule
-import com.itis.group11801.fedotova.mvvmexample.di.module.NavigationModule
-import com.itis.group11801.fedotova.mvvmexample.di.module.NetworkModule
+import com.itis.group11801.fedotova.mvvmexample.di.module.*
 import dagger.BindsInstance
 import dagger.Component
 import javax.inject.Singleton
@@ -16,7 +13,8 @@ import javax.inject.Singleton
         DbModule::class,
         DataModule::class,
         NetworkModule::class,
-        NavigationModule::class
+        NavigationModule::class,
+        ViewModelModule::class
     ]
 )
 interface AppComponent {
