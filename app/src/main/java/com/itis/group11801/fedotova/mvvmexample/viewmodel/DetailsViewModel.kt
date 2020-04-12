@@ -13,7 +13,8 @@ class DetailsViewModel @Inject constructor(
 ) : BaseViewModel() {
 
     private val _newsLiveData = MutableLiveData<News>()
-    val newsLiveData: LiveData<News> = _newsLiveData
+    val newsLiveData: LiveData<News>
+        get() = _newsLiveData
 
     fun getConcreteNews(url: String) {
         disposables.add(

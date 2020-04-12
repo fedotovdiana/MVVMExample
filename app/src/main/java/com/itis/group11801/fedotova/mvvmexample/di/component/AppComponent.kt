@@ -2,24 +2,28 @@ package com.itis.group11801.fedotova.mvvmexample.di.component
 
 import android.app.Application
 import com.itis.group11801.fedotova.mvvmexample.App
-import com.itis.group11801.fedotova.mvvmexample.di.module.*
+import com.itis.group11801.fedotova.mvvmexample.di.module.DataModule
+import com.itis.group11801.fedotova.mvvmexample.di.module.DbModule
+import com.itis.group11801.fedotova.mvvmexample.di.module.NavigationModule
+import com.itis.group11801.fedotova.mvvmexample.di.module.NetworkModule
 import dagger.BindsInstance
 import dagger.Component
-import dagger.android.AndroidInjectionModule
 import javax.inject.Singleton
 
 @Singleton
 @Component(
     modules = [
-        AndroidInjectionModule::class,
-        AppModule::class,
         DbModule::class,
-        NavigationModule::class,
-        ActivityModule::class,
-        ViewModelModule::class
+        DataModule::class,
+        NetworkModule::class,
+        NavigationModule::class
     ]
 )
 interface AppComponent {
+
+    fun plusMainComponentBuilder(): MainComponent.Builder
+
+    fun plusDetailsComponentBuilder(): DetailsComponent.Builder
 
     @Component.Builder
     interface Builder {

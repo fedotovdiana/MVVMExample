@@ -1,4 +1,4 @@
-package com.itis.group11801.fedotova.mvvmexample.data.remote.repository
+package com.itis.group11801.fedotova.mvvmexample.data.repository
 
 import com.itis.group11801.fedotova.mvvmexample.data.local.NewsDao
 import com.itis.group11801.fedotova.mvvmexample.data.remote.mapper.mapNewsLocalToNews
